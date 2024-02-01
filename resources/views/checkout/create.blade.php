@@ -33,29 +33,47 @@
               @csrf
               <div class="mb-4">
                 <label for="name" class="form-label">Full Name</label>
-                <input name="name" id="name" type="text" class="form-control" value="{{ Auth::user()->name }}"/>
+                <input name="name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" required/>
+                @error('name')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
               </div>
               <div class="mb-4">
                 <label for="email" class="form-label">Email Address</label>
-                <input name="email" id="email" type="email" class="form-control" value="{{ Auth::user()->email }}"/>
+                <input name="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ Auth::user()->email }}" required/>
+                @error('email')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
               </div>
               <div class="mb-4">
                 <label for="occupation" class="form-label">Occupation</label>
-                <input name="occupation" id="occupation" type="text" class="form-control" value="{{ Auth::user()->occupation }}"/>
+                <input name="occupation" id="occupation" type="text" class="form-control @error('occupation') is-invalid @enderror" value="{{ old('occupation') ? : Auth::user()->occupation }}" required/>
+                @error('occupation')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
               </div>
               <div class="mb-4">
                 <label for="card_number" class="form-label">Card Number</label>
-                <input name="card_number" id="card_number" type="number" class="form-control"/>
+                <input name="card_number" id="card_number" type="number" class="form-control @error('card_number') is-invalid @enderror" value="{{ old('card_number') ? : '' }}" required/>
+                @error('card_number')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
               </div>
               <div class="mb-5">
                 <div class="row">
                   <div class="col-lg-6 col-12">
                     <label for="expired" class="form-label">Expired</label>
-                    <input name="expired" id="expired" type="month" class="form-control"/>
+                    <input name="expired" id="expired" type="month" class="form-control @error('expired') is-invalid @enderror" value="{{ old('expired') ? : '' }}" required/>
+                    @error('expired')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
                   </div>
                   <div class="col-lg-6 col-12">
                     <label for="cvc" class="form-label">CVC</label>
-                    <input name="cvc" id="cvc" type="number" class="form-control" maxlength="3"/>
+                    <input name="cvc" id="cvc" type="number" class="form-control @error('cvc') is-invalid @enderror" maxlength="3" value="{{ old('cvc') ? : '' }}" required/>
+                    @error('cvc')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
                   </div>
                 </div>
               </div>
