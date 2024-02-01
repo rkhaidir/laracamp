@@ -8,7 +8,7 @@ Thank you for your register on <b>{{ $checkout->Camp->title }}</b>. Please see p
 The body of your message.
 
 <x-mail::button :url="$url">
-Get Invoice
+My Dashboard
 </x-mail::button>
 
 Thanks,<br>

@@ -41,7 +41,7 @@ class AfterCheckout extends Mailable
             markdown: 'emails.checkout.afterCheckout',
             with: [
                 'checkout' => $this->checkout,
-                'url' => route('user.checkout.invoice', $this->checkout->id)
+                'url' => route('dashboard')
             ]
         );
     }
