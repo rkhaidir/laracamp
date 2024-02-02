@@ -5,8 +5,6 @@ Hi {{ $checkout->User->name }}
 <br>
 Thank you for your register on <b>{{ $checkout->Camp->title }}</b>. Please see payment instruction by click the button below.
 
-The body of your message.
-
 <x-mail::button :url="$url">
 My Dashboard
 </x-mail::button>
